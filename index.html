@@ -1,106 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GITAMRITA – Spiritual Wisdom</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GITAMRITA – Daily Gita Shloka</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(#fff7e6, #ffffff);
-      color: #333333;
-      text-align: center;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(#fff7e6, #ffffff);
+    color: #333;
+    text-align: center;
+  }
 
-    header {
-      padding: 45px 20px;
-      background-color: #ffedd5;
-    }
+  header {
+    background: #ffedd5;
+    padding: 40px 20px;
+  }
 
-    h1 {
-      color: #191970;
-      font-weight: 800;
-      font-size: 38px;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
+  h1 {
+    color: #191970;
+    font-weight: 800;
+    font-size: 38px;
+    margin-bottom: 6px;
+  }
 
-    h2 {
-      color: #cb410b;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
+  .tagline {
+    color: #cb410b;
+    font-weight: 600;
+    font-size: 18px;
+  }
 
-    .tagline {
-      color: #cb410b;
-      font-size: 18px;
-      font-weight: 600;
-    }
+  section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
 
-    section {
-      padding: 35px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+  h2 {
+    color: #cb410b;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
 
-    .shloka {
-      font-size: 22px;
-      margin: 20px auto;
-      max-width: 700px;
-      line-height: 1.7;
-      font-weight: 600;
-    }
+  .shloka-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 15px;
+  }
 
-    footer {
-      background: #ffedd5;
-      padding: 15px;
-      font-size: 14px;
-      color: #555;
-    }
+  .shloka {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.7;
+  }
 
-    a {
-      color: #cb410b;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-    }
+  .ref {
+    margin-top: 10px;
+    font-style: italic;
+  }
 
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  .meaning {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
+  }
+
+  .controls {
+    margin-top: 25px;
+  }
+
+  button {
+    background: #cb410b;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin: 0 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.9;
+  }
+
+  a {
+    color: #cb410b;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer {
+    background: #ffedd5;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+  }
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>GITAMRITA</h1>
-    <div class="tagline">Reviving Krishna Consciousness</div>
-  </header>
+<header>
+  <h1>GITAMRITA</h1>
+  <div class="tagline">Reviving Krishna Consciousness</div>
+</header>
 
-  <section>
-    <h2>🕉️ Today's Shloka</h2>
+<section>
+  <h2>🕉️ Daily Shloka</h2>
 
-    <div class="shloka">
-      कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।<br>
-      मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥
-    </div>
+  <div class="shloka-box">
+    <div class="shloka" id="shloka-text"></div>
+    <div class="ref" id="shloka-ref"></div>
+    <div class="meaning" id="shloka-meaning"></div>
+  </div>
 
-    <p><em>— Bhagavad Gita 2.47</em></p>
-  </section>
+  <div class="controls">
+    <button onclick="prevShloka()">◀ Previous</button>
+    <button onclick="nextShloka()">Next ▶</button>
+  </div>
+</section>
 
-  <section>
-    <h2>📿 Follow @gitamritaa</h2>
-    <a href="https://instagram.com/GITAMRITAA" target="_blank">Instagram</a>
-  </section>
+<section>
+  <h2>📿 Follow @gitamritaa</h2>
+  <a href="https://instagram.com/GITAMRITAA" target="_blank">Instagram</a>
+</section>
 
-  <footer>
-    © 2025 Gitamrita | Spiritual Content
-  </footer>
+<footer>
+  © 2025 Gitamrita | Daily Bhagavad Gita Wisdom
+</footer>
+
+<script>
+  const shlokas = [
+    {
+      text: `कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।<br>
+             मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥`,
+      ref: "— Bhagavad Gita 2.47",
+      meaning: "You have the right to perform your duty, but not to the fruits of action."
+    },
+    {
+      text: `यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।<br>
+             अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥`,
+      ref: "— Bhagavad Gita 4.7",
+      meaning: "Whenever righteousness declines, I manifest Myself."
+    },
+    {
+      text: `उद्धरेदात्मनाऽत्मानं नात्मानमवसादयेत् ।<br>
+             आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥`,
+      ref: "— Bhagavad Gita 6.5",
+      meaning: "One must elevate oneself by one’s own mind."
+    }
+  ];
+
+  const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % shlokas.length;
+  let currentIndex = dayIndex;
+
+  function renderShloka() {
+    document.getElementById("shloka-text").innerHTML = shlokas[currentIndex].text;
+    document.getElementById("shloka-ref").textContent = shlokas[currentIndex].ref;
+    document.getElementById("shloka-meaning").textContent = shlokas[currentIndex].meaning;
+  }
+
+  function nextShloka() {
+    currentIndex = (currentIndex + 1) % shlokas.length;
+    renderShloka();
+  }
+
+  function prevShloka() {
+    currentIndex = (currentIndex - 1 + shlokas.length) % shlokas.length;
+    renderShloka();
+  }
+
+  renderShloka();
+</script>
 
 </body>
 </html>
