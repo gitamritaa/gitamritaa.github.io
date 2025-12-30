@@ -3,125 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GITAMRITA – Spiritual Wisdom</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>GITAMRITA</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-  body {margin:0; font-family:'Poppins',sans-serif; background:#fff7e6; color:#333;}
-  header {background:#ffedd5; padding:20px 10px; position:sticky; top:0; z-index:100;}
-  nav {display:flex; flex-wrap:wrap; justify-content:center; gap:12px;}
-  nav a {color:#191970; text-decoration:none; font-weight:600; font-size:15px;}
-  nav a:hover {color:#cb410b;}
-
-  section {padding:50px 20px; max-width:900px; margin:auto;}
-  .section-title {color:#cb410b; font-weight:700; font-size:24px; margin-bottom:15px;}
-  .box {background:#fff; border-radius:10px; padding:25px; margin-bottom:40px; box-shadow:0 4px 8px rgba(0,0,0,0.08);}
-  .shloka-text {font-size:22px; font-weight:600; line-height:1.7; text-align:center;}
-  .controls button {margin:0 8px; padding:8px 14px; font-weight:600; border:none; background:#cb410b; color:#fff; border-radius:6px; cursor:pointer;}
-  .controls button:hover {opacity:0.9;}
-
-  form input, form textarea, form select, form button {width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:6px;}
-  form button {background:#191970; color:#fff; border:none; cursor:pointer; font-weight:600;}
-  form button:hover {background:#cb410b;}
-
-  footer {background:#ffedd5; text-align:center; padding:15px; font-size:14px;}
-  html {scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:Poppins,sans-serif;
+  background:#fff7e6;
+}
+header{
+  background:#ffedd5;
+  padding:15px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.logo{
+  font-size:28px;
+  font-weight:800;
+  color:#191970;
+}
+nav a{
+  margin:0 12px;
+  text-decoration:none;
+  font-weight:600;
+  color:#191970;
+}
+nav a:hover{
+  color:#cb410b;
+}
+.hero{
+  text-align:center;
+  padding:70px 20px;
+}
+.hero h1{
+  font-size:36px;
+  color:#191970;
+}
+.hero p{
+  font-size:18px;
+  color:#cb410b;
+  font-weight:600;
+}
+footer{
+  background:#ffedd5;
+  text-align:center;
+  padding:15px;
+  font-size:14px;
+}
 </style>
 </head>
 
 <body>
 
 <header>
+  <div class="logo">GITAMRITA</div>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#prabhupada">Srila Prabhupada</a>
-    <a href="#daily-shloka">Daily Shloka</a>
-    <a href="#vaisnava-calendar">Vaisnava Calendar</a>
-    <a href="#donation">Donation</a>
-    <a href="#contact">Contact Us</a>
+    <a href="prabhupada.html">Srila Prabhupada</a>
+    <a href="daily-shloka.html">Daily Shloka</a>
+    <a href="calendar.html">Vaisnava Calendar</a>
+    <a href="donation.html">Donation</a>
+    <a href="contact.html">Contact Us</a>
   </nav>
 </header>
 
-<section id="home">
-  <div class="box">
-    <h2 class="section-title">Welcome to GITAMRITA</h2>
-    <p>GITAMRITA presents timeless wisdom of the Bhagavad Gita and Srila Prabhupada’s teachings — inspiring spiritual life and devotion.</p>
-  </div>
-</section>
-
-<section id="prabhupada">
-  <div class="box">
-    <h2 class="section-title">Srila Prabhupada</h2>
-    <p>His Divine Grace A.C. Bhaktivedanta Swami Prabhupada — Founder-Acharya of ISKCON.</p>
-    <p>“Chant Hare Krishna and be happy.”</p>
-  </div>
-</section>
-
-<section id="daily-shloka">
-  <div class="box">
-    <h2 class="section-title">Daily Shloka</h2>
-    <div class="shloka-text" id="shloka-text"></div>
-    <p id="shloka-ref" style="text-align:center;font-style:italic;margin-top:10px;"></p>
-    <div class="controls">
-      <button onclick="prevShloka()">Previous</button>
-      <button onclick="nextShloka()">Next</button>
-    </div>
-  </div>
-</section>
-
-<section id="vaisnava-calendar">
-  <div class="box">
-    <h2 class="section-title">Vaisnava Calendar</h2>
-    <ul>
-      <li>Ekadasi Dates</li>
-      <li>Appearance Days</li>
-      <li>Festivals</li>
-    </ul>
-  </div>
-</section>
-
-<section id="donation">
-  <div class="box">
-    <h2 class="section-title">Donation</h2>
-    <p>Your support helps share Krishna consciousness. You can add QR details or online links here.</p>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="box">
-    <h2 class="section-title">Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <select>
-        <option>General Inquiry</option>
-        <option>Donation</option>
-        <option>Join Service</option>
-      </select>
-      <textarea placeholder="Your Message" rows="4" required></textarea>
-      <button>Send Message</button>
-    </form>
-  </div>
-</section>
+<div class="hero">
+  <h1>Reviving Krishna Consciousness</h1>
+  <p>Timeless Wisdom from Bhagavad Gita & Srila Prabhupada</p>
+</div>
 
 <footer>
-  © 2025 GITAMRITA | Inspired by ISKCON Agartala Site Style
+© 2025 GITAMRITA | Spiritual Content
 </footer>
-
-<script>
-  const shlokas = [
-    { text:`कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥`, ref:"— Bhagavad Gita 2.47" },
-    { text:`यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।<br>अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥`, ref:"— Bhagavad Gita 4.7" },
-    { text:`उद्धरेदात्मनाऽत्मानं नात्मानमवसादयेत् ।<br>आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥`, ref:"— Bhagavad Gita 6.5" }
-  ];
-  let currentIndex = 0;
-  function renderShloka() {
-    document.getElementById("shloka-text").innerHTML = shlokas[currentIndex].text;
-    document.getElementById("shloka-ref").textContent = shlokas[currentIndex].ref;
-  }
-  function nextShloka() { currentIndex = (currentIndex+1)%shlokas.length; renderShloka(); }
-  function prevShloka() { currentIndex = (currentIndex-1+shlokas.length)%shlokas.length; renderShloka(); }
-  renderShloka();
-</script>
 
 </body>
 </html>
