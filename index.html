@@ -4,47 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GITAMRITA</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Montserrat Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-  /* MOBILE RESPONSIVE FIX */
-@media (max-width: 768px) {
 
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  nav {
-    margin-top: 12px;
-  }
-
-  nav a {
-    display: inline-block;
-    margin: 6px 8px;
-    font-size: 14px;
-  }
-
-  .logo {
-    font-size: 24px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-  }
-
-  .hero h1 {
-    font-size: 26px;
-  }
-
+/* BASE */
+body{
+  margin:0;
+  font-family:'Montserrat', sans-serif;
+  background:#fff7e6;
 }
-.subtitle{
-  font-size:14px;
-  font-weight:600;
-  color:#cb410b;
-  margin-top:-4px;
-}
+
+/* HEADER */
 header{
   background:#ffedd5;
   padding:15px 25px;
@@ -53,39 +26,85 @@ header{
   align-items:center;
   flex-wrap:wrap;
 }
+
 .logo{
   font-size:28px;
   font-weight:800;
   color:#191970;
 }
+
+.subtitle{
+  font-size:14px;
+  font-weight:600;
+  color:#cb410b;
+  margin-top:-4px;
+}
+
+/* NAVIGATION */
 nav a{
   margin:0 12px;
   text-decoration:none;
-  font-weight:600;
+  font-weight:700;
   color:#191970;
 }
+
 nav a:hover{
   color:#cb410b;
 }
+
+/* HERO (OPTIONAL SECTION) */
 .hero{
   text-align:center;
-  padding:70px 20px;
+  padding:40px 20px;
 }
+
 .hero h1{
-  font-size:36px;
+  font-size:34px;
+  font-weight:800;
   color:#191970;
 }
-.hero p{
-  font-size:18px;
-  color:#cb410b;
-  font-weight:600;
-}
+
+/* FOOTER */
 footer{
   background:#ffedd5;
   text-align:center;
   padding:15px;
   font-size:14px;
+  font-weight:600;
 }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+  header{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  nav{
+    margin-top:12px;
+  }
+
+  nav a{
+    display:inline-block;
+    margin:6px 8px;
+    font-size:14px;
+  }
+
+  .logo{
+    font-size:24px;
+  }
+
+  .subtitle{
+    font-size:13px;
+  }
+
+  .hero h1{
+    font-size:26px;
+  }
+}
+
 </style>
 </head>
 
@@ -106,8 +125,9 @@ footer{
   </nav>
 </header>
 
+<!-- Optional hero section (can remove if not needed) -->
 <div class="hero">
-  <h1>Reviving Krishna Consciousness</h1>
+  <h1>Welcome to GITAMRITA</h1>
 </div>
 
 <footer>
