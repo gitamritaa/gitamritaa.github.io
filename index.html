@@ -27,14 +27,12 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
 }
 
 /* BRAND */
 .brand{
   display:flex;
   flex-direction:column;
-  white-space:nowrap;
 }
 
 .brand-title{
@@ -49,27 +47,49 @@ header{
   color:#cb410b;
 }
 
-/* NAV */
+/* NAV (DESKTOP) */
 nav{
   display:flex;
-  gap:16px;
-  overflow-x:auto;
-  white-space:nowrap;
-  scrollbar-width:none; /* Firefox */
-}
-
-nav::-webkit-scrollbar{
-  display:none; /* Chrome */
+  gap:18px;
 }
 
 nav a{
   text-decoration:none;
   font-weight:700;
-  font-size:14px;
+  font-size:15px;
   color:#191970;
 }
 
 nav a:hover{
+  color:#cb410b;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+  color:#191970;
+}
+
+/* MOBILE MENU */
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  background:#ffedd5;
+  padding:12px 0;
+  border-top:1px solid #e0cfc0;
+}
+
+.mobile-nav a{
+  padding:10px 20px;
+  text-decoration:none;
+  font-weight:700;
+  color:#191970;
+}
+
+.mobile-nav a:hover{
+  background:#ffe4c4;
   color:#cb410b;
 }
 
@@ -82,8 +102,16 @@ footer{
   font-weight:600;
 }
 
-/* SMALL SCREENS */
+/* MOBILE */
 @media (max-width: 768px){
+
+  nav{
+    display:none; /* hide desktop menu */
+  }
+
+  .hamburger{
+    display:block;
+  }
 
   .brand-title{
     font-size:22px;
@@ -91,10 +119,6 @@ footer{
 
   .subtitle{
     font-size:12px;
-  }
-
-  nav a{
-    font-size:13px;
   }
 }
 
@@ -109,6 +133,7 @@ footer{
     <div class="subtitle">Reviving Krishna Consciousness</div>
   </div>
 
+  <!-- Desktop Menu -->
   <nav>
     <a href="prabhupada.html">Srila Prabhupada</a>
     <a href="daily-shloka.html">Daily Shloka</a>
@@ -116,11 +141,30 @@ footer{
     <a href="donation.html">Donation</a>
     <a href="contact.html">Contact Us</a>
   </nav>
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
 </header>
+
+<!-- Mobile Menu -->
+<div class="mobile-nav" id="mobileMenu">
+  <a href="prabhupada.html">Srila Prabhupada</a>
+  <a href="daily-shloka.html">Daily Shloka</a>
+  <a href="calendar.html">Vaisnava Calendar</a>
+  <a href="donation.html">Donation</a>
+  <a href="contact.html">Contact Us</a>
+</div>
 
 <footer>
 © 2025 GITAMRITA | Spiritual Content
 </footer>
+
+<script>
+function toggleMenu(){
+  const menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+</script>
 
 </body>
 </html>
