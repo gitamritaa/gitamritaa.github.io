@@ -3,78 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GITAMRITA – Spiritual Wisdom</title>
+  <title>GITAMRITA – Daily Gita Wisdom</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    nav {
-  margin-top: 20px;
-}
-
-nav a {
-  margin: 0 12px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #191970;
-}
-
-nav a:hover {
-  color: #cb410b;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(#fff7e6, #ffffff);
-      color: #333333;
+      color: #333;
       text-align: center;
     }
 
     header {
-      <header>
-  <!-- Logo -->
-  <img src="images/logo.png" alt="Gitamrita Logo" class="logo">
-
-  <!-- Title -->
-  <h1>GITAMRITA</h1>
-  <div class="tagline">Reviving Krishna Consciousness</div>
-
-  <!-- Navigation -->
-  <nav>
-    <a href="#srilaprabhupada">Srila Prabhupada</a>
-    <a href="#dailyshloka">Meaning</a>
-    <a href="#donation">Donation</a>
-    <a href="#contactus">Contact Us</a>
-  </nav>
-
-  <!-- Hero Image -->
-  <img src="images/hero.jpg" alt="Krishna Wisdom" class="hero-image">
-</header>
-
+      background: #ffedd5;
+      padding: 35px 20px;
+    }
 
     h1 {
       color: #191970;
       font-weight: 800;
-      font-size: 38px;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      color: #cb410b;
-      font-weight: 600;
-      margin-bottom: 15px;
+      font-size: 36px;
+      margin-bottom: 6px;
     }
 
     .tagline {
       color: #cb410b;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    nav a {
+      margin: 0 12px;
+      color: #191970;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #cb410b;
     }
 
     section {
@@ -83,12 +53,24 @@ html {
       margin: auto;
     }
 
+    .box {
+      background: #fff;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #cb410b;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
     .shloka {
       font-size: 22px;
-      margin: 20px auto;
-      max-width: 700px;
-      line-height: 1.7;
       font-weight: 600;
+      line-height: 1.7;
     }
 
     footer {
@@ -100,25 +82,32 @@ html {
 
     a {
       color: #cb410b;
-      text-decoration: none;
-      margin: 0 10px;
       font-weight: 600;
+      text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>GITAMRITA</h1>
-    <div class="tagline">Reviving Krishna Consciousness</div>
-  </header>
+<header>
+  <h1>GITAMRITA</h1>
+  <div class="tagline">Reviving Krishna Consciousness</div>
 
-  <section>
+  <nav>
+    <a href="#shloka">Shloka</a>
+    <a href="#meaning">Meaning</a>
+    <a href="#practice">Practice</a>
+    <a href="#connect">Connect</a>
+  </nav>
+</header>
+
+<section id="shloka">
+  <div class="box">
     <h2>🕉️ Today's Shloka</h2>
 
     <div class="shloka">
@@ -127,16 +116,40 @@ html {
     </div>
 
     <p><em>— Bhagavad Gita 2.47</em></p>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>📿 Follow @gitamritaa</h2>
+<section id="meaning">
+  <div class="box">
+    <h2>📖 Meaning</h2>
+    <p>
+      You have the right to perform your duty, but not to the fruits of your actions.
+      Do not be attached to results, nor to inaction.
+    </p>
+  </div>
+</section>
+
+<section id="practice">
+  <div class="box">
+    <h2>🧘 How to Practice</h2>
+    <p>
+      Read one shloka daily, reflect on its meaning, apply it in your actions,
+      and remember Krishna with devotion.
+    </p>
+  </div>
+</section>
+
+<section id="connect">
+  <div class="box">
+    <h2>📿 Connect With Us</h2>
+    <p>Follow GITAMRITA for daily Bhagavad Gita inspiration.</p>
     <a href="https://instagram.com/GITAMRITAA" target="_blank">Instagram</a>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2025 Gitamrita | Spiritual Content
-  </footer>
+<footer>
+  © 2025 GITAMRITA | Daily Bhagavad Gita Wisdom
+</footer>
 
 </body>
 </html>
