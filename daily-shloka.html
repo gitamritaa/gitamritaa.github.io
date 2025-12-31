@@ -93,7 +93,6 @@ footer{
 </header>
 
 <div class="container">
-
   <div class="shloka" id="shlokaText">Loading…</div>
   <div class="reference" id="shlokaRef"></div>
   <div class="meaning" id="shlokaMeaning"></div>
@@ -102,7 +101,6 @@ footer{
     <button id="prevBtn" onclick="prevShloka()">⬅ Previous</button>
     <button id="nextBtn" onclick="nextShloka()">Next ➡</button>
   </div>
-
 </div>
 
 <footer>
@@ -112,54 +110,29 @@ footer{
 <script>
 const shlokas = [
   {
-    text: "धर्म-क्षेत्रे कुरु-क्षेत्रे<br>समवेता युयुत्सवः<br>मामकाः पाण्डवाश्चैव<br>किमकुर्वत सञ्जय",
+    text: "dhṛtarāṣṭra uvāca<br>dharma-kṣetre kuru-kṣetre<br>samavetā yuyutsavaḥ<br>māmakāḥ pāṇḍavāś caiva<br>kim akurvata sañjaya",
     ref: "Bhagavad Gita 1.1",
     meaning: "Dhṛtarāṣṭra said: O Sañjaya, after assembling in the place of pilgrimage at Kurukṣetra, what did my sons and the sons of Pāṇḍu do, being desirous to fight?"
   },
   {
-    text: "कार्पण्य-दोषोपहत-स्वभावः<br>पृच्छामि त्वां धर्म-सम्मूढ-चेताः<br>यच्छ्रेयः स्यान्निश्चितं ब्रूहि तन्मे<br>शिष्यस्तेऽहं शाधि मां त्वां प्रपन्नम्",
+    text: "kārpaṇya-doṣopahata-svabhāvaḥ<br>pṛcchāmi tvāṁ dharma-sammūḍha-cetāḥ<br>yac chreyaḥ syān niścitaṁ brūhi tan me<br>śiṣyas te ’haṁ śādhi māṁ tvāṁ prapannam",
     ref: "Bhagavad Gita 2.7",
-    meaning: "Now I am confused about my duty and have lost all composure because of weakness. I am Your disciple and surrendered unto You. Please instruct me."
+    meaning: "Now I am confused about my duty and have lost all composure because of weakness. In this condition I am asking You to tell me clearly what is best for me. Now I am Your disciple, and a soul surrendered unto You. Please instruct me."
   },
   {
-    text: "अशोच्यानन्वशोचस्त्वं<br>प्रज्ञावादांश्च भाषसे<br>गतासूनगतासूंश्च<br>नानुशोचन्ति पण्डिताः",
+    text: "aśocyān anvaśocas tvaṁ<br>prajñā-vādāṁś ca bhāṣase<br>gatāsūn agatāsūṁś ca<br>nānuśocanti paṇḍitāḥ",
     ref: "Bhagavad Gita 2.11",
-    meaning: "The Blessed Lord said: You are mourning for what is not worthy of grief. Those who are wise lament neither for the living nor the dead."
+    meaning: "The Blessed Lord said: While speaking learned words, you are mourning for what is not worthy of grief. Those who are wise lament neither for the living nor the dead."
   },
   {
-    text: "न त्वेवाहं जातु नासं<br>न त्वं नेमे जनाधिपाः<br>न चैव न भविष्यामः<br>सर्वे वयमतः परम्",
+    text: "na tv evāhaṁ jātu nāsaṁ<br>na tvaṁ neme janādhipāḥ<br>na caiva na bhaviṣyāmaḥ<br>sarve vayam ataḥ param",
     ref: "Bhagavad Gita 2.12",
-    meaning: "Never was there a time when I did not exist, nor you, nor all these kings; nor shall any of us cease to be in the future."
+    meaning: "Never was there a time when I did not exist, nor you, nor all these kings; nor in the future shall any of us cease to be."
   },
   {
-    text: "देहिनोऽस्मिन्यथा देहे<br>कौमारं यौवनं जरा<br>तथा देहान्तर-प्राप्तिर्धीरस्तत्र न मुह्यति",
+    text: "dehino ’smin yathā dehe<br>kaumāraṁ yauvanaṁ jarā<br>tathā dehāntara-prāptir<br>dhīras tatra na muhyati",
     ref: "Bhagavad Gita 2.13",
-    meaning: "As the soul passes from boyhood to youth to old age, similarly it passes into another body at death. The wise are not bewildered."
-  },
-  {
-    text: "मात्रा-स्पर्शास्तु कौन्तेय<br>शीतोष्ण-सुख-दुःखदाः<br>आगमापायिनोऽनित्यास्तांस्तितिक्षस्व भारत",
-    ref: "Bhagavad Gita 2.14",
-    meaning: "Happiness and distress come and go like seasons. They are temporary and must be tolerated."
-  },
-  {
-    text: "न जायते म्रियते वा कदाचिन्<br>नायं भूत्वा भविता वा न भूयः<br>अजो नित्यः शाश्वतोऽयं पुराणो<br>न हन्यते हन्यमाने शरीरे",
-    ref: "Bhagavad Gita 2.20",
-    meaning: "The soul is never born nor does it die. It is eternal and cannot be destroyed when the body is destroyed."
-  },
-  {
-    text: "वासांसि जीर्णानि यथा विहाय<br>नवानि गृह्णाति नरोऽपराणि<br>तथा शरीराणि विहाय जीर्णान्यन्यानि संयाति नवानि देही",
-    ref: "Bhagavad Gita 2.22",
-    meaning: "As a person puts on new garments, the soul similarly accepts new bodies, giving up the old."
-  },
-  {
-    text: "नैनं छिन्दन्ति शस्त्राणि<br>नैनं दहति पावकः<br>न चैनं क्लेदयन्त्यापो<br>न शोषयति मारुतः",
-    ref: "Bhagavad Gita 2.23",
-    meaning: "The soul can never be cut, burned, moistened, or withered."
-  },
-  {
-    text: "जातस्य हि ध्रुवो मृत्युर्ध्रुवं जन्म मृतस्य च<br>तस्मादपरिहार्येऽर्थे न त्वं शोचितुमर्हसि",
-    ref: "Bhagavad Gita 2.27",
-    meaning: "For one who is born, death is certain, and for one who dies, birth is certain. Therefore, do not lament."
+    meaning: "As the embodied soul continually passes, in this body, from boyhood to youth to old age, the soul similarly passes into another body at death. The self-realized soul is not bewildered by such a change."
   }
 ];
 
