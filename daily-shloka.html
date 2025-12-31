@@ -27,28 +27,36 @@ header h1{
 
 .container{
   max-width:900px;
-  margin:40px auto;
+  margin:30px auto;
   padding:20px;
 }
 
 .shloka{
-  font-size:22px;
+  font-size:20px;
   font-weight:700;
   line-height:1.7;
-  margin-bottom:10px;
+  margin-bottom:15px;
 }
 
 .reference{
   font-size:14px;
   color:#555;
-  margin-bottom:20px;
+  margin-bottom:15px;
+}
+
+.synonyms{
+  font-size:14px;
+  text-align:left;
+  line-height:1.6;
+  margin-bottom:25px;
+  color:#444;
 }
 
 .meaning{
   font-size:16px;
   line-height:1.6;
-  color:#333;
   margin-bottom:30px;
+  color:#222;
 }
 
 .buttons{
@@ -80,8 +88,8 @@ footer{
 }
 
 @media (max-width:768px){
-  .shloka{ font-size:20px; }
-  .meaning{ font-size:15px; }
+  .shloka{font-size:18px;}
+  .meaning{font-size:15px;}
 }
 </style>
 </head>
@@ -93,8 +101,9 @@ footer{
 </header>
 
 <div class="container">
-  <div class="shloka" id="shlokaText">Loading…</div>
+  <div class="shloka" id="shlokaText"></div>
   <div class="reference" id="shlokaRef"></div>
+  <div class="synonyms" id="shlokaSyn"></div>
   <div class="meaning" id="shlokaMeaning"></div>
 
   <div class="buttons">
@@ -109,31 +118,107 @@ footer{
 
 <script>
 const shlokas = [
-  {
-    text: "dhṛtarāṣṭra uvāca<br>dharma-kṣetre kuru-kṣetre<br>samavetā yuyutsavaḥ<br>māmakāḥ pāṇḍavāś caiva<br>kim akurvata sañjaya",
-    ref: "Bhagavad Gita 1.1",
-    meaning: "Dhṛtarāṣṭra said: O Sañjaya, after assembling in the place of pilgrimage at Kurukṣetra, what did my sons and the sons of Pāṇḍu do, being desirous to fight?"
-  },
-  {
-    text: "kārpaṇya-doṣopahata-svabhāvaḥ<br>pṛcchāmi tvāṁ dharma-sammūḍha-cetāḥ<br>yac chreyaḥ syān niścitaṁ brūhi tan me<br>śiṣyas te ’haṁ śādhi māṁ tvāṁ prapannam",
-    ref: "Bhagavad Gita 2.7",
-    meaning: "Now I am confused about my duty and have lost all composure because of weakness. In this condition I am asking You to tell me clearly what is best for me. Now I am Your disciple, and a soul surrendered unto You. Please instruct me."
-  },
-  {
-    text: "aśocyān anvaśocas tvaṁ<br>prajñā-vādāṁś ca bhāṣase<br>gatāsūn agatāsūṁś ca<br>nānuśocanti paṇḍitāḥ",
-    ref: "Bhagavad Gita 2.11",
-    meaning: "The Blessed Lord said: While speaking learned words, you are mourning for what is not worthy of grief. Those who are wise lament neither for the living nor the dead."
-  },
-  {
-    text: "na tv evāhaṁ jātu nāsaṁ<br>na tvaṁ neme janādhipāḥ<br>na caiva na bhaviṣyāmaḥ<br>sarve vayam ataḥ param",
-    ref: "Bhagavad Gita 2.12",
-    meaning: "Never was there a time when I did not exist, nor you, nor all these kings; nor in the future shall any of us cease to be."
-  },
-  {
-    text: "dehino ’smin yathā dehe<br>kaumāraṁ yauvanaṁ jarā<br>tathā dehāntara-prāptir<br>dhīras tatra na muhyati",
-    ref: "Bhagavad Gita 2.13",
-    meaning: "As the embodied soul continually passes, in this body, from boyhood to youth to old age, the soul similarly passes into another body at death. The self-realized soul is not bewildered by such a change."
-  }
+
+{
+text:
+"dhṛtarāṣṭra uvāca<br>dharma-kṣetre kuru-kṣetre<br>samavetā yuyutsavaḥ<br>māmakāḥ pāṇḍavāś caiva<br>kim akurvata sañjaya",
+ref:"Bhagavad Gita 1.1",
+syn:
+"dhṛtarāṣṭraḥ—King Dhṛtarāṣṭra; uvāca—said; dharma-kṣetre—in the place of pilgrimage; kuru-kṣetre—in the place named Kurukṣetra; samavetāḥ—assembled; yuyatsavaḥ—desiring to fight; māmakāḥ—my party (sons); pāṇḍavāḥ—the sons of Pāṇḍu; ca—and; eva—certainly; kim—what; akurvata—did they do; sañjaya—O Sañjaya.",
+meaning:
+"Dhṛtarāṣṭra said: O Sañjaya, after assembling in the place of pilgrimage at Kurukṣetra, what did my sons and the sons of Pāṇḍu do, being desirous to fight?"
+},
+
+{
+text:
+"kārpaṇya-doṣopahata-svabhāvaḥ<br>pṛcchāmi tvāṁ dharma-sammūḍha-cetāḥ<br>yac chreyaḥ syān niścitaṁ brūhi tan me<br>śiṣyas te ’haṁ śādhi māṁ tvāṁ prapannam",
+ref:"Bhagavad Gita 2.7",
+syn:
+"kārpaṇya—miserly; doṣa—weakness; upahata—being inflicted by; svabhāvaḥ—characteristics; pṛcchāmi—I am asking; tvām—unto You; dharma—religion; saṁmūḍha—bewildered; cetāḥ—in heart; yat—what; śreyaḥ—all-good; syāt—may be; niścitam—confidently; brūhi—tell; tat—that; me—unto me; śiṣyaḥ—disciple; te—Your; aham—I am; śādhi—just instruct; mām—me; tvām—unto You; prapannam—surrendered.",
+meaning:
+"Now I am confused about my duty and have lost all composure because of weakness. In this condition I am asking You to tell me clearly what is best for me. Now I am Your disciple, and a soul surrendered unto You. Please instruct me."
+},
+
+{
+text:
+"śrī-bhagavān uvāca<br>aśocyān anvaśocas tvaṁ<br>prajñā-vādāṁś ca bhāṣase<br>gatāsūn agatāsūṁś ca<br>nānuśocanti paṇḍitāḥ",
+ref:"Bhagavad Gita 2.11",
+syn:
+"śrī bhagavān uvāca—the Supreme Personality of Godhead said; aśocyān—that which is not worthy of lamentation; anvaśocaḥ—you are lamenting; tvam—you; prajñā-vādāḥ—learned talks; ca—also; bhāṣase—speaking; gata—lost; asūn—life; agata—not past; asūn—life; ca—also; na—never; anuśocanti—lament; paṇḍitāḥ—the learned.",
+meaning:
+"The Blessed Lord said: While speaking learned words, you are mourning for what is not worthy of grief. Those who are wise lament neither for the living nor the dead."
+},
+
+{
+text:
+"na tv evāhaṁ jātu nāsaṁ<br>na tvaṁ neme janādhipāḥ<br>na caiva na bhaviṣyāmaḥ<br>sarve vayam ataḥ param",
+ref:"Bhagavad Gita 2.12",
+syn:
+"na—never; tu—but; eva—certainly; aham—I; jātu—become; na—never; āsam—existed; na—it is not so; tvam—yourself; na—not; ime—all these; janādhipāḥ—kings; na—never; ca—also; eva—certainly; na—not like that; bhaviṣyāmaḥ—shall exist; sarve—all of us; vayam—we; ataḥ param—hereafter.",
+meaning:
+"Never was there a time when I did not exist, nor you, nor all these kings; nor in the future shall any of us cease to be."
+},
+
+{
+text:
+"dehino ’smin yathā dehe<br>kaumāraṁ yauvanaṁ jarā<br>tathā dehāntara-prāptir<br>dhīras tatra na muhyati",
+ref:"Bhagavad Gita 2.13",
+syn:
+"dehinaḥ—of the embodied; asmin—in this; yathā—as; dehe—in the body; kaumāram—boyhood; yauvanam—youth; jarā—old age; tathā—similarly; dehāntara—transference of the body; prāptiḥ—achievement; dhīraḥ—the sober; tatra—thereupon; na—never; muhyati—deluded.",
+meaning:
+"As the embodied soul continually passes, in this body, from boyhood to youth to old age, the soul similarly passes into another body at death. The self-realized soul is not bewildered by such a change."
+},
+
+{
+text:
+"mātrā-sparśās tu kaunteya<br>śītoṣṇa-sukha-duḥkha-dāḥ<br>āgamāpāyino ’nityās<br>tāṁs titikṣasva bhārata",
+ref:"Bhagavad Gita 2.14",
+syn:
+"mātrā—sensuous; sparśāḥ—perception; tu—only; kaunteya—O son of Kuntī; śīta—winter; uṣṇa—summer; sukha—happiness; duḥkha-daḥ—giving pain; āgama—appearing; apāyinaḥ—disappearing; anityāḥ—nonpermanent; tān—all of them; titikṣasva—just try to tolerate; bhārata—O descendant of the Bhārata dynasty.",
+meaning:
+"O son of Kuntī, the nonpermanent appearance of happiness and distress, and their disappearance in due course, are like the appearance and disappearance of winter and summer seasons. One must learn to tolerate them without being disturbed."
+},
+
+{
+text:
+"na jāyate mriyate vā kadācin<br>nāyaṁ bhūtvā bhavitā vā na bhūyaḥ<br>ajo nityaḥ śāśvato ’yaṁ purāṇo<br>na hanyate hanyamāne śarīre",
+ref:"Bhagavad Gita 2.20",
+syn:
+"na—never; jāyate—takes birth; mriyate—never dies; vā—either; kadācit—at any time; na—never; ayam—this; bhūtvā—came into being; bhavitā—will come to be; vā—or; na—not; bhūyaḥ—or has come to be; ajaḥ—unborn; nityaḥ—eternal; śāśvataḥ—permanent; ayam—this; purāṇaḥ—the oldest; na—never; hanyate—is killed; hanyamāne—being killed; śarīre—by the body.",
+meaning:
+"For the soul there is never birth nor death. Nor, having once been, does he ever cease to be. He is unborn, eternal, ever-existing, undying and primeval. He is not slain when the body is slain."
+},
+
+{
+text:
+"vāsāṁsi jīrṇāni yathā vihāya<br>navāni gṛhṇāti naro ’parāṇi<br>tathā śarīrāṇi vihāya jīrṇāny<br>anyāni saṁyāti navāni dehī",
+ref:"Bhagavad Gita 2.22",
+syn:
+"vāsāṁsi—garments; jīrṇāni—old and worn out; yathā—as it is; vihāya—giving up; navāni—new garments; gṛhṇāti—does accept; naraḥ—a man; aparāṇi—other; tathā—in the same way; śarīrāṇi—bodies; vihāya—giving up; jīrṇāni—old and useless; anyāni—different; saṁyāti—verily accepts; navāni—new sets; dehī—the embodied.",
+meaning:
+"As a person puts on new garments, giving up old ones, similarly, the soul accepts new material bodies, giving up the old and useless ones."
+},
+
+{
+text:
+"nainaṁ chindanti śastrāṇi<br>nainaṁ dahati pāvakaḥ<br>na cainaṁ kledayanty āpo<br>na śoṣayati mārutaḥ",
+ref:"Bhagavad Gita 2.23",
+syn:
+"na—never; enam—unto this soul; chindanti—can cut into pieces; śastrāṇi—all weapons; na—never; enam—unto this soul; dahati—burns; pāvakaḥ—fire; na—never; ca—also; enam—unto this soul; kledayanti—moistens; āpaḥ—water; na—never; śoṣayati—dries; mārutaḥ—wind.",
+meaning:
+"The soul can never be cut into pieces by any weapon, nor can he be burned by fire, nor moistened by water, nor withered by the wind."
+},
+
+{
+text:
+"jātasya hi dhruvo mṛtyur<br>dhruvaṁ janma mṛtasya ca<br>tasmād aparihārye ’rthe<br>na tvaṁ śocitum arhasi",
+ref:"Bhagavad Gita 2.27",
+syn:
+"jātasya—one who has taken his birth; hi—certainly; dhruvaḥ—a fact; mṛtyuḥ—death; dhruvam—it is also a fact; janma—birth; mṛtasya—of the dead; ca—also; tasmāt—therefore; aparihārye—for that which is unavoidable; arthe—in the matter of; na—do not; tvam—you; śocitum—to lament; arhasi—deserve.",
+meaning:
+"For one who has taken his birth, death is certain; and for one who is dead, birth is certain. Therefore, in the unavoidable discharge of your duty, you should not lament."
+}
+
 ];
 
 let index = 0;
@@ -141,25 +226,14 @@ let index = 0;
 function showShloka(){
   document.getElementById("shlokaText").innerHTML = shlokas[index].text;
   document.getElementById("shlokaRef").innerText = shlokas[index].ref;
+  document.getElementById("shlokaSyn").innerText = shlokas[index].syn;
   document.getElementById("shlokaMeaning").innerText = shlokas[index].meaning;
-
   document.getElementById("prevBtn").disabled = index === 0;
   document.getElementById("nextBtn").disabled = index === shlokas.length - 1;
 }
 
-function nextShloka(){
-  if(index < shlokas.length - 1){
-    index++;
-    showShloka();
-  }
-}
-
-function prevShloka(){
-  if(index > 0){
-    index--;
-    showShloka();
-  }
-}
+function nextShloka(){ if(index < shlokas.length - 1){ index++; showShloka(); } }
+function prevShloka(){ if(index > 0){ index--; showShloka(); } }
 
 showShloka();
 </script>
