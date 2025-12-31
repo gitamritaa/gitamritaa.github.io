@@ -12,53 +12,64 @@ body{
   margin:0;
   font-family:'Montserrat', sans-serif;
   background:#fff7e6;
-}
-header{
-  background:#ffedd5;
-  padding:16px;
   text-align:center;
 }
+
+header{
+  background:#ffedd5;
+  padding:18px;
+}
+
 header h1{
   margin:0;
   color:#191970;
+  font-weight:800;
 }
+
 .container{
-  max-width:950px;
-  margin:30px auto;
+  max-width:900px;
+  margin:40px auto;
   padding:20px;
 }
+
+.ref{
+  font-size:15px;
+  font-weight:800;
+  color:#191970;
+  margin-bottom:12px;
+}
+
 .sanskrit{
   font-size:20px;
   font-weight:700;
-  line-height:1.7;
-  margin-bottom:12px;
-}
-.reference{
-  font-size:14px;
-  color:#666;
+  line-height:1.8;
   margin-bottom:18px;
 }
-.wordbyword{
-  background:#fff;
-  padding:16px;
-  border-radius:8px;
+
+.word{
   font-size:14px;
-  line-height:1.6;
-  margin-bottom:20px;
+  line-height:1.7;
+  color:#444;
+  margin-bottom:18px;
 }
+
 .meaning{
   font-size:16px;
   font-weight:600;
   line-height:1.7;
-  margin-bottom:30px;
+  color:#222;
 }
+
 .buttons{
+  margin-top:40px;
   display:flex;
   justify-content:center;
   gap:20px;
 }
+
 button{
-  padding:10px 24px;
+  padding:10px 22px;
+  font-size:15px;
   font-weight:700;
   border:none;
   border-radius:6px;
@@ -66,16 +77,21 @@ button{
   color:#fff;
   cursor:pointer;
 }
+
 button:disabled{
   opacity:0.5;
+  cursor:not-allowed;
 }
+
 footer{
   background:#ffedd5;
-  text-align:center;
-  padding:14px;
+  padding:15px;
+  font-size:14px;
 }
+
 @media(max-width:768px){
   .sanskrit{font-size:18px;}
+  .meaning{font-size:15px;}
 }
 </style>
 </head>
@@ -88,19 +104,18 @@ footer{
 
 <div class="container">
 
-<div class="sanskrit" id="sanskritText"></div>
-<div class="reference" id="shlokaRef"></div>
-<div class="wordbyword" id="wordMeaning"></div>
-<div class="meaning" id="englishMeaning"></div>
+<div id="content"></div>
 
 <div class="buttons">
-  <button onclick="prevShloka()" id="prevBtn">⬅ Previous</button>
-  <button onclick="nextShloka()" id="nextBtn">Next ➡</button>
+  <button onclick="prev()">⬅ Previous</button>
+  <button onclick="next()">Next ➡</button>
 </div>
 
 </div>
 
-<footer>© 2025 GITAMRITA</footer>
+<footer>
+© 2025 GITAMRITA
+</footer>
 
 <script>
 const shlokas = [
@@ -112,8 +127,15 @@ dharma-kṣetre kuru-kṣetre<br>
 samavetā yuyutsavaḥ<br>
 māmakāḥ pāṇḍavāś caiva<br>
 kim akurvata sañjaya`,
-word:`dhṛtarāṣṭraḥ—King Dhṛtarāṣṭra; uvāca—said; dharma-kṣetre—in the place of pilgrimage; kuru-kṣetre—in Kurukṣetra; samavetāḥ—assembled; yuyutsavaḥ—desiring to fight; māmakāḥ—my sons; pāṇḍavāḥ—the sons of Pāṇḍu; ca—and; eva—certainly; kim—what; akurvata—did they do; sañjaya—O Sañjaya.`,
-meaning:`Dhṛtarāṣṭra said: O Sañjaya, after assembling in the place of pilgrimage at Kurukṣetra, what did my sons and the sons of Pāṇḍu do, being desirous to fight?`
+word:`dhṛtarāṣṭraḥ—King Dhṛtarāṣṭra; uvāca—said;<br>
+dharma-kṣetre—in the place of pilgrimage; kuru-kṣetre—at Kurukṣetra;<br>
+samavetāḥ—assembled; yuyutsavaḥ—desiring to fight;<br>
+māmakāḥ—my sons; pāṇḍavāḥ—the sons of Pāṇḍu;<br>
+ca—and; eva—certainly; kim—what;<br>
+akurvata—did they do; sañjaya—O Sañjaya.`,
+meaning:`Dhṛtarāṣṭra said: O Sañjaya, after assembling in the place of pilgrimage
+at Kurukṣetra, what did my sons and the sons of Pāṇḍu do,
+being desirous to fight?`
 },
 
 {
@@ -122,8 +144,12 @@ sanskrit:`kārpaṇya-doṣopahata-svabhāvaḥ<br>
 pṛcchāmi tvāṁ dharma-sammūḍha-cetāḥ<br>
 yac chreyaḥ syān niścitaṁ brūhi tan me<br>
 śiṣyas te ’haṁ śādhi māṁ tvāṁ prapannam`,
-word:`kārpaṇya—miserly weakness; doṣa—fault; upahata—overcome; svabhāvaḥ—nature; pṛcchāmi—I ask; tvām—You; dharma—duty; sammūḍha—bewildered; cetāḥ—heart; yat—what; śreyaḥ—best; syāt—may be; niścitam—certainly; brūhi—tell; tat—that; me—unto me; śiṣyaḥ—disciple; te—Your; aham—I am; śādhi—instruct; mām—me; tvām—unto You; prapannam—surrendered.`,
-meaning:`Now I am confused about my duty and have lost all composure. I am Your disciple and a soul surrendered unto You. Please instruct me.`
+word:`kārpaṇya—miserly weakness; doṣa—fault; upahata—overcome;<br>
+pṛcchāmi—I ask; tvām—You; dharma—duty;<br>
+yac—what; śreyaḥ—best; syāt—may be;<br>
+śiṣyaḥ—disciple; prapannam—surrendered.`,
+meaning:`Now I am confused about my duty and have lost all composure because of weakness.
+I am Your disciple and a soul surrendered unto You. Please instruct me.`
 },
 
 {
@@ -133,8 +159,11 @@ aśocyān anvaśocas tvaṁ<br>
 prajñā-vādāṁś ca bhāṣase<br>
 gatāsūn agatāsūṁś ca<br>
 nānuśocanti paṇḍitāḥ`,
-word:`śrī-bhagavān uvāca—the Supreme Lord said; aśocyān—not worthy of grief; anvaśocaḥ—you lament; tvam—you; prajñā-vādān—learned words; ca—also; bhāṣase—speak; gatāsūn—the dead; agatāsūn—the living; na—never; anuśocanti—lament; paṇḍitāḥ—the wise.`,
-meaning:`The Blessed Lord said: While speaking learned words, you are mourning for what is not worthy of grief. Those who are wise lament neither for the living nor the dead.`
+word:`aśocyān—not worthy of grief; anvaśocaḥ—lamenting;<br>
+prajñā-vādān—learned words; paṇḍitāḥ—the wise.`,
+meaning:`The Blessed Lord said: While speaking learned words,
+you mourn for what is not worthy of grief.
+The wise lament neither for the living nor the dead.`
 },
 
 {
@@ -143,8 +172,11 @@ sanskrit:`na tv evāhaṁ jātu nāsaṁ<br>
 na tvaṁ neme janādhipāḥ<br>
 na caiva na bhaviṣyāmaḥ<br>
 sarve vayam ataḥ param`,
-word:`na—never; tu—but; eva—certainly; aham—I; jātu—at any time; na—never; āsam—existed; tvam—you; ime—these; janādhipāḥ—kings; bhaviṣyāmaḥ—shall exist; sarve—all; vayam—we; ataḥ param—hereafter.`,
-meaning:`Never was there a time when I did not exist, nor you, nor all these kings; nor in the future shall any of us cease to be.`
+word:`na—never; aham—I; tvam—you; janādhipāḥ—kings;<br>
+bhaviṣyāmaḥ—shall exist.`,
+meaning:`Never was there a time when I did not exist,
+nor you, nor all these kings;
+nor shall any of us cease to be in the future.`
 },
 
 {
@@ -153,8 +185,11 @@ sanskrit:`dehino ’smin yathā dehe<br>
 kaumāraṁ yauvanaṁ jarā<br>
 tathā dehāntara-prāptir<br>
 dhīras tatra na muhyati`,
-word:`dehinaḥ—of the embodied soul; asmin—in this; dehe—body; kaumāram—boyhood; yauvanam—youth; jarā—old age; tathā—similarly; dehāntara—another body; prāptiḥ—attainment; dhīraḥ—the sober; na—never; muhyati—deluded.`,
-meaning:`As the embodied soul continually passes from boyhood to youth to old age, similarly the soul passes into another body at death. The sober are not bewildered.`
+word:`dehinaḥ—of the embodied soul; kaumāram—boyhood;<br>
+yauvanam—youth; jarā—old age.`,
+meaning:`As the soul passes from boyhood to youth to old age,
+it similarly passes into another body at death.
+The sober person is not bewildered by this change.`
 },
 
 {
@@ -163,73 +198,36 @@ sanskrit:`mātrā-sparśās tu kaunteya<br>
 śītoṣṇa-sukha-duḥkha-dāḥ<br>
 āgamāpāyino ’nityās<br>
 tāṁs titikṣasva bhārata`,
-word:`mātrā—sense perception; sparśāḥ—contact; śīta—cold; uṣṇa—heat; sukha—happiness; duḥkha—distress; āgama—appearance; apāyinaḥ—disappearance; anityāḥ—temporary; titikṣasva—tolerate.`,
-meaning:`O son of Kuntī, happiness and distress are temporary, arising from sense perception. One must learn to tolerate them.`
-},
-
-{
-ref:"Bhagavad Gita 2.15",
-sanskrit:`yaṁ hi na vyathayanty ete<br>
-puruṣaṁ puruṣarṣabha<br>
-sama-duḥkha-sukhaṁ dhīraṁ<br>
-so ’mṛtatvāya kalpate`,
-word:`vyathayanti—disturb; puruṣam—person; sama—equal; duḥkha—distress; sukham—happiness; dhīram—steady; amṛtatvāya—liberation.`,
-meaning:`One who is not disturbed by happiness and distress and remains steady becomes eligible for liberation.`
-},
-
-{
-ref:"Bhagavad Gita 2.16",
-sanskrit:`nāsato vidyate bhāvo<br>
-nābhāvo vidyate sataḥ`,
-word:`asataḥ—of the unreal; bhāvaḥ—existence; sataḥ—of the real; abhāvaḥ—nonexistence.`,
-meaning:`The unreal has no endurance, and the real never ceases to be.`
-},
-
-{
-ref:"Bhagavad Gita 2.17",
-sanskrit:`avināśi tu tad viddhi<br>
-yena sarvam idaṁ tatam`,
-word:`avināśi—indestructible; viddhi—know; yena—by which; sarvam—all; tatam—pervaded.`,
-meaning:`Know that which pervades the entire body is indestructible.`
-},
-
-{
-ref:"Bhagavad Gita 2.18",
-sanskrit:`antavanta ime dehā<br>
-nityasyoktāḥ śarīriṇaḥ`,
-word:`antavantaḥ—perishable; dehāḥ—bodies; nityasya—eternal; śarīriṇaḥ—of the embodied soul.`,
-meaning:`The body is perishable, but the soul within is eternal.`
-},
-
-{
-ref:"Bhagavad Gita 2.19",
-sanskrit:`ya enaṁ vetti hantāraṁ<br>
-yaś cainaṁ manyate hatam`,
-word:`vetti—thinks; hantāram—killer; manyate—considers; hatam—killed.`,
-meaning:`One who thinks the soul kills or is killed does not understand.`
-},
-
-{
-ref:"Bhagavad Gita 2.20",
-sanskrit:`na jāyate mriyate vā kadācin`,
-word:`jāyate—birth; mriyate—death; kadācin—at any time.`,
-meaning:`For the soul there is never birth nor death.`
+word:`mātrā-sparśāḥ—sense perception; śīta—cold; uṣṇa—heat;<br>
+sukha—happiness; duḥkha—distress; anityāḥ—temporary.`,
+meaning:`O son of Kuntī, happiness and distress arise from sense perception
+and are temporary like seasons.
+One must learn to tolerate them without being disturbed.`
 }
 
 ];
 
-let index=0;
-function showShloka(){
-  document.getElementById("sanskritText").innerHTML=shlokas[index].sanskrit;
-  document.getElementById("shlokaRef").innerText=shlokas[index].ref;
-  document.getElementById("wordMeaning").innerText=shlokas[index].word;
-  document.getElementById("englishMeaning").innerText=shlokas[index].meaning;
-  prevBtn.disabled=index===0;
-  nextBtn.disabled=index===shlokas.length-1;
+let i = 0;
+const content = document.getElementById("content");
+
+function render(){
+  const s = shlokas[i];
+  content.innerHTML = `
+    <div class="ref">${s.ref}</div>
+    <div class="sanskrit">${s.sanskrit}</div>
+    <div class="word">${s.word}</div>
+    <div class="meaning">${s.meaning}</div>
+  `;
 }
-function nextShloka(){ if(index<shlokas.length-1){index++;showShloka();}}
-function prevShloka(){ if(index>0){index--;showShloka();}}
-showShloka();
+
+function next(){
+  if(i < shlokas.length - 1){ i++; render(); }
+}
+function prev(){
+  if(i > 0){ i--; render(); }
+}
+
+render();
 </script>
 
 </body>
