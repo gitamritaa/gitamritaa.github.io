@@ -46,18 +46,19 @@ header h1{
   margin-bottom:18px;
 }
 
-.word{
-  font-size:14px;
-  line-height:1.7;
-  color:#444;
-  margin-bottom:18px;
-}
-
 .meaning{
   font-size:16px;
   font-weight:600;
   line-height:1.7;
   color:#222;
+  margin-bottom:18px;
+}
+
+.counter{
+  font-size:14px;
+  font-weight:700;
+  color:#444;
+  margin-bottom:18px;
 }
 
 .buttons{
@@ -105,6 +106,7 @@ footer{
 <div class="container">
 
 <div id="content"></div>
+<div class="counter" id="counter"></div>
 
 <div class="buttons">
   <button onclick="prev()">⬅ Previous</button>
@@ -1233,6 +1235,7 @@ meaning:`Wherever Krishna and Arjuna are, there will certainly be opulence, vict
 
 let i = 0;
 const content = document.getElementById("content");
+const counter = document.getElementById("counter");
 
 function render(){
   const s = shlokas[i];
@@ -1241,13 +1244,26 @@ function render(){
     <div class="sanskrit">${s.sanskrit}</div>
     <div class="meaning">${s.meaning}</div>
   `;
+  counter.innerHTML = `Shloka ${i + 1} of ${shlokas.length}`;
+  updateButtons();
+}
+
+function updateButtons(){
+  document.querySelector("button[onclick='prev()']").disabled = (i === 0);
+  document.querySelector("button[onclick='next()']").disabled = (i === shlokas.length - 1);
 }
 
 function next(){
-  if(i < shlokas.length - 1){ i++; render(); }
+  if(i < shlokas.length - 1){ 
+    i++; 
+    render(); 
+  }
 }
 function prev(){
-  if(i > 0){ i--; render(); }
+  if(i > 0){ 
+    i--; 
+    render(); 
+  }
 }
 
 render();
