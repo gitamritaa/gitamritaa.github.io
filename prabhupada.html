@@ -1,50 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Srila Prabhupada – GITAMRITA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body{
     font-family:Poppins;
-    background:#fff7e6;
-    text-align:center;
     margin:0;
+    background:#fff7e6;
+    color:#333;
 }
 
 header{
     background:#ffedd5;
     padding:20px;
+    text-align:center;
 }
 
-.box{
-    background:#fff;
-    margin:40px auto;
-    padding:30px;
-    max-width:900px;
-    border-radius:12px;
+header h1{
+    margin:0;
 }
 
-a{
-    color:#cb410b;
+header a{
     text-decoration:none;
+    color:#cb410b;
     font-weight:600;
 }
 
+/* Main container */
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+}
+
+/* Top image section */
+.hero{
+    text-align:center;
+}
+
+.hero img{
+    max-width:300px;
+    width:100%;
+    border-radius:12px;
+}
+
+.hero h2{
+    margin-top:15px;
+}
+
 /* Biography text */
-.bio{
+.section{
+    margin-top:35px;
+}
+
+.section h3{
+    color:#cb410b;
+    border-bottom:2px solid #ffedd5;
+    padding-bottom:5px;
+}
+
+.section p{
+    line-height:1.8;
     text-align:justify;
-    line-height:1.7;
-    margin-top:20px;
 }
 
 /* Image gallery */
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:15px;
-    margin-top:25px;
+    margin-top:20px;
 }
 
 .gallery img{
@@ -61,34 +93,67 @@ a{
   <a href="index.html">← Home</a>
 </header>
 
-<div class="box">
-  <h2>Founder-Acharya of ISKCON</h2>
-  <p><em>“Chant Hare Krishna and be happy.”</em></p>
+<div class="container">
 
-  <!-- Biography Section -->
-  <h3>Biography</h3>
-  <div class="bio">
+  <!-- Top Section -->
+  <div class="hero">
+    <img src="images/prabhupada-main.jpg" alt="Srila Prabhupada">
+    <h2>Founder-Acharya of ISKCON</h2>
+    <p><em>“Chant Hare Krishna and be happy.”</em></p>
+  </div>
+
+  <!-- About Section -->
+  <div class="section">
+    <h3>About Śrīla Prabhupāda</h3>
     <p>
-      His Divine Grace A.C. Bhaktivedanta Swami Prabhupada was born in 1896 in
-      Calcutta, India. He was a pure devotee of Lord Krishna and the founder-acharya
-      of the International Society for Krishna Consciousness (ISKCON).
+      His Divine Grace A.C. Bhaktivedanta Swami Prabhupada appeared in this world
+      in 1896 in Calcutta, India. From his early life, he showed strong devotion
+      to Lord Krishna and deep interest in spiritual knowledge.
     </p>
 
     <p>
-      At the age of 69, Srila Prabhupada traveled to the United States with the
-      mission to spread Krishna consciousness throughout the world. Despite many
-      difficulties, he established temples, translated sacred Vedic scriptures,
-      and inspired millions to follow the path of bhakti-yoga.
+      He later became a disciple of Srila Bhaktisiddhanta Sarasvati Thakura, who
+      instructed him to spread Krishna consciousness in the English-speaking world.
+      Srila Prabhupada accepted this instruction as his life and soul.
     </p>
   </div>
 
-  <!-- Image Gallery Section -->
-  <h3>Pictures</h3>
-  <div class="gallery">
-    <img src="images/prabhupada1.jpg" alt="Srila Prabhupada">
-    <img src="images/prabhupada2.jpg" alt="Srila Prabhupada">
-    <img src="images/prabhupada3.jpg" alt="Srila Prabhupada">
+  <!-- Mission Section -->
+  <div class="section">
+    <h3>His Mission</h3>
+    <p>
+      At the age of 69, Srila Prabhupada traveled alone to the United States with
+      no money or support. Despite many hardships, he began teaching the chanting
+      of the Hare Krishna maha-mantra.
+    </p>
+
+    <p>
+      In 1966, he founded the International Society for Krishna Consciousness (ISKCON),
+      which spread rapidly across the world through temples, books, and festivals.
+    </p>
   </div>
+
+  <!-- Contributions Section -->
+  <div class="section">
+    <h3>Literary Contributions</h3>
+    <p>
+      Srila Prabhupada translated and commented on many sacred Vedic scriptures,
+      including Bhagavad-gita As It Is, Srimad Bhagavatam, and Chaitanya Charitamrita.
+      His books are read and respected worldwide.
+    </p>
+  </div>
+
+  <!-- Gallery -->
+  <div class="section">
+    <h3>Pictures of Srila Prabhupada</h3>
+    <div class="gallery">
+      <img src="images/prabhupada1.jpg" alt="Srila Prabhupada">
+      <img src="images/prabhupada2.jpg" alt="Srila Prabhupada">
+      <img src="images/prabhupada3.jpg" alt="Srila Prabhupada">
+      <img src="images/prabhupada4.jpg" alt="Srila Prabhupada">
+    </div>
+  </div>
+
 </div>
 
 </body>
